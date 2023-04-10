@@ -15,9 +15,7 @@ const SignUpPage = ()=>{
     const navigate = useNavigate()
    let isOkay=true
     const handleSignUp= async(elements)=>{
-        
         const auth = getAuth()
-    
         try{
             await createUserWithEmailAndPassword(auth,elements.email,elements.password)
         }
@@ -26,12 +24,11 @@ const SignUpPage = ()=>{
             alert(`request unsuccessfull ! ${err.message}`)
         }
         if(isOkay){
-         
                 setUserData({...elements,navigate:navigate})  
-                .then(res=>{if(res){
-                    console.log(res)
-                    navigate('/log-in')}
-                })
+                .then(res=>{
+                    navigate('/log-in')
+                    console.log(res)}
+                )
               
         }
     }
