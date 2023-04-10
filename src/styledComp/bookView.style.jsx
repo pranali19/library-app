@@ -36,6 +36,7 @@ display: flex;
 `
 export const SubHeading=styled.h2`
     width: 30%;
+    overflow:hidden;
     font-family: serif;
     margin: auto 1% auto 1%;
     font-weight: normal;

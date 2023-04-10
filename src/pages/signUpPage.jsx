@@ -2,7 +2,7 @@
 import userSignUpAction from '../Utils/actionCreators'
 import SignInTemp from './signInTemp'
 import { UserInfoContext } from '../App'
-import { useCallback, useContext } from 'react'
+import { useCallback, useContext, useState } from 'react'
 import { getAuth ,createUserWithEmailAndPassword,signInWithEmailAndPassword} from "firebase/auth";
 import {setUserData} from '../Utils/firestoreMethods'
 
@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 const SignUpPage = ()=>{
+   
     // const {userDispatch}=useContext(UserInfoContext)
     const navigate = useNavigate()
    let isOkay=true
@@ -24,13 +25,12 @@ const SignUpPage = ()=>{
             alert(`request unsuccessfull ! ${err.message}`)
         }
         if(isOkay){
-                const res =setUserData({...elements,navigate:navigate})  
-             
-                    res.then(ress=>{
-                        if(ress){
-                             navigate('/log-in')
-                        }})
-                 
+         
+                setUserData({...elements,navigate:navigate})  
+                .then(res=>{if(res){
+                    navigate('/log-in')}
+                })
+              
         }
     }
     return(

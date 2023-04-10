@@ -2,7 +2,7 @@ import { useContext, useRef, useState } from "react";
 import { SearchBtnWrap, SearchDiv, SearchInp } from "../styledComp/search.styled"
 import { BookContext } from "../App";
 import { AuthorName } from "../styledComp/dashboard.style";
-import { BookInfoStrip } from "../styledComp/home.styled";
+import { BookInfoStrip, CustomHomeBtn } from "../styledComp/home.styled";
 import { useNavigate } from "react-router-dom";
 // import SearchInpButton from 
 const Search =()=>{
@@ -27,11 +27,12 @@ const Search =()=>{
             navigate('/dashboard/add-book',{state:{keys,from,title,description,authors,genre,excerpts,available}}) 
         
     }
+
     return (
        <SearchDiv>
         <SearchBtnWrap>
         <SearchInp type='text' ref={searchRef} onChange={getBooks}/>
-        <button>search</button>
+        <CustomHomeBtn style={{margin:"2% auto"}} onClick={getBooks}>search</CustomHomeBtn>
         {
             searchList.map(i=>
             <BookInfoStrip onClick={()=>onClickStripe(i)}>
