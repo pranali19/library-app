@@ -36,7 +36,7 @@ export const HomeHeaderComp = ()=>{
             <CustomHomeBtn onClick={()=>navigate('/log-in')}>{'Login'}</CustomHomeBtn>
             }
             {
-                isLoggedIn && isLibrarian ?
+                isLibrarian ?
                 <CustomHomeBtn onClick={()=>navigate('/dashboard')}>
                 {'Dashboad'}
                 </CustomHomeBtn>:''}
