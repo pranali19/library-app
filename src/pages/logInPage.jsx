@@ -13,23 +13,23 @@ import {readUserData} from '../Utils/firestoreMethods'
 const LogInPage =()=>{
     const {setUserInfo,isLoggedIn,setIsLibrarian}=useContext(UserInfoContext)
     const navigate =useNavigate()
+   let isOkay=true
     const handleLogIn =useCallback(async (elements)=>{
              if (!isLoggedIn){
              try{
                 const auth = getAuth()
                 await signInWithEmailAndPassword(auth,elements.email,elements.password)
-                .then(
-                    readUserData(elements.email,navigate,setUserInfo,setIsLibrarian)
-                )
                
             }
             catch(err){
+                isOkay = false
                 console.log(err)
                 alert('authentication unsuccessfull')
             }}
-            else{
-                navigate('/')
+            if(isOkay){
+                    readUserData(elements.email,navigate,setUserInfo,setIsLibrarian)
             }
+
        
     })
     return(

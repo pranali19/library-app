@@ -95,6 +95,7 @@ export const ImageWave=styled.div`
 export const FormWrapper = styled.div`
   height:90%;
   width:70%;
+  padding:3%;
   border-radius:20px;
   background:#7c747445;
   display:flex;
@@ -112,6 +113,7 @@ export const IconDiv = styled.div`
 export const InputContainer =styled.div`
 display:flex;
 height:auto;
+
 flex-direction:column;
 margin-top:10%;
 width:100%;
@@ -138,11 +140,11 @@ export const SignInput=styled.input`
   font-size: 16px;
   font-weight: 400;
   line-height: normal;
-  background-color: transparent;
+  ${'' /* background-color: transparent; */}
   color: #282828;
   outline: none;
   box-shadow: 0px 4px 20px 0px transparent;
-  transition: 0.3s background-color ease-in-out, 0.3s box-shadow ease-in-out, 0.1s padding ease-in-out;
+  ${'' /* transition: 0.3s background-color ease-in-out, 0.3s box-shadow ease-in-out, 0.1s padding ease-in-out; */}
   -webkit-appearance: none;
   ::placeholder{
     color:#58605c

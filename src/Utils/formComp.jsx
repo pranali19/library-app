@@ -6,7 +6,7 @@ const SingleInputElem = ({placeholder})=>{
     return(
         <Label>
         {placeholder==='role'?
-        <div><small>librarian role</small><CheckBox required name={placeholder} type='checkbox'/></div>:
+        <div><small>librarian role</small><CheckBox name={placeholder} type='checkbox'/></div>:
         <SignInput required type={placeholder==='password'?'password':'text'} name={placeholder} placeholder={placeholder}/>
         }
         <IconDiv/>

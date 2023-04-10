@@ -29,6 +29,8 @@ const Dashboard=()=>{
             <MainHeaderStyle onClick={()=>navigate('/')}>Library App</MainHeaderStyle>
             <LinkContainer>
                 <DashBoardLink to='/dashboard' style={getStyle(1)}  onClick={()=>setActive(1)}>Book List</DashBoardLink>
+                <DashBoardLink to='/dashboard/search' style={getStyle(2)}  onClick={()=>setActive(2)}>Search</DashBoardLink>
+
                 <DashBoardLink to='/dashboard/add-book' style={getStyle(3)} onClick={()=>setActive(3)}>Add Book</DashBoardLink>
             </LinkContainer>
         </HeaderMenuStyle>
@@ -37,9 +39,10 @@ const Dashboard=()=>{
 <Routes>
     <Route path="/" element={<BookList from='dashboard'/>} />
     <Route path="/add-book" element={<AddBookPage/>} />
+    <Route path="/search" element={<Search/>} />
+
     <Route path='*' element={<ErrorPage />}/>
     
-
 </Routes>
 </SubRoutesContainer> 
         </DashContainer>:

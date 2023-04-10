@@ -12,24 +12,26 @@ import { useNavigate } from 'react-router-dom'
 const SignUpPage = ()=>{
     // const {userDispatch}=useContext(UserInfoContext)
     const navigate = useNavigate()
- 
+   let isOkay=true
     const handleSignUp= async(elements)=>{
-        console.log(elements)
+        
+        const auth = getAuth()
         try{
-            const auth = getAuth()
             await createUserWithEmailAndPassword(auth,elements.email,elements.password)
-            .then(
-                setUserData({...elements,navigate:navigate})
-                )
-           
         }
         catch(err){
-            console.log(err)
+            isOkay = false
             alert(`request unsuccessfull ! ${err.message}`)
         }
-        console.log(elements)
-
-    
+        if(isOkay){
+                const res =setUserData({...elements,navigate:navigate})  
+             
+                    res.then(ress=>{
+                        if(ress){
+                             navigate('/log-in')
+                        }})
+                 
+        }
     }
     return(
         <SignInTemp title='Sign Up' inpArr={['name','username','email','password','role']} handler={handleSignUp}/>

@@ -2,12 +2,14 @@ import { useNavigate } from 'react-router-dom'
 import BookList from '../Utils/BookList'
 import { IconWrap } from '../styledComp/addBook.styled'
 import { MainHeaderStyle } from '../styledComp/dashboard.style'
-import { CustomHomeBtn, HomeContainer, HomeHeader, LoginShowWrap } from '../styledComp/home.styled'
+import { BookInfoStrip, CustomHomeBtn, HomeContainer, HomeFeed, HomeHeader, LoginShowWrap } from '../styledComp/home.styled'
 import {BiUserCircle} from 'react-icons/bi'
 import { signOut,getAuth } from 'firebase/auth'
 import { SubHeading } from '../styledComp/bookView.style'
 import { useContext } from 'react'
 import { UserInfoContext } from '../App'
+// import { CardContainer,BookTitle,AuthorName,GenreName,Excrept, CardTitleWrap } from "../styledComp/dashboard.style"
+
 
 const onClickSignOut=async ()=>{
   const auth = getAuth();
@@ -33,7 +35,11 @@ export const HomeHeaderComp = ()=>{
             </>:
             <CustomHomeBtn onClick={()=>navigate('/log-in')}>{'Login'}</CustomHomeBtn>
             }
-            {isLoggedIn && isLibrarian ?<CustomHomeBtn onClick={()=>navigate('/dashboard')}>{'Dashboad'}</CustomHomeBtn>:''}
+            {
+                isLoggedIn && isLibrarian ?
+                <CustomHomeBtn onClick={()=>navigate('/dashboard')}>
+                {'Dashboad'}
+                </CustomHomeBtn>:''}
 
         </LoginShowWrap>
         </HomeHeader>

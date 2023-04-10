@@ -27,7 +27,6 @@ function App() {
   setIsLoggedIn(true)
   }  else {
     setIsLoggedIn(false)
-    console.log("logged out")
   }
 })
   },[])

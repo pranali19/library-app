@@ -74,6 +74,7 @@ export const CardTitleWrap=styled.div`
     height:fit-content;
     width:100%;
     padding:1px;
+    display:inline-flex;
     margin-left:-1px;
     margin-top:-1px;
     ${'' /* background:green; */}
@@ -85,6 +86,7 @@ export const CardTitleWrap=styled.div`
     line-height: 1.2rem;
     background: #8ec2ae
 `
+
 export const CardContainer =styled.div`
     font-size: 20px;
     box-sizing: inherit;

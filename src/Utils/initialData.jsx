@@ -15,7 +15,7 @@ const initialData=[
             "authors": "Titus Lucretius Carus",
             "genre": ["Poetry"],
             "description": "This is regarded as a seminal text of Epicurean science and philosophy. Epicurians discarded both the idea of immortality and the superstitious worship of wilful gods for a life of serene contentment in the available pleasures of nature. Lucretius (c100-c55BC), in elucidating this belief, steers the reader through an extraordinary breadth of subject matter, ranging from the indestructibility of atoms and the discovery of fire to the folly of romantic love and the phenomena of clouds and rainstorms.",
-            "excerpts":"",
+            "excerpts":" you are right now, outer space is only 62 miles (100 kilometers) away. Day or night, whether you’re indoors or outdoors, asleep, eating lunch or dozing off in class, ",
             "available":"true",
         
         },
@@ -25,7 +25,7 @@ const initialData=[
             "authors": "Karel Appel, Jean-Clarence Lambert, Kenneth White, Marshall McLahan, Johannes Gachnang, Donald Kuspit, and Jean Fremon",
             "genre": ["Exhibitions", "Painters","Art","Histor"],
             "description":"Juana Rosalia sueña con ser escritora. No duda en convertir la ficción en realidad, el problema es que cada nota provoca situaciones imprevistas. Esta novela toca inquietudes de los adolescentes: el amor, la sexualidad, los tatuajes, a la vez que reflexiona sobre nuestros deseos y sus consecuencias.",
-            "excerpts":"",
+            "excerpts":"In fact, you’re technically in space right now. Humans say “out in space” as if it’s there and we’re here, as if Earth is separate from the rest of the universe.",
             "available":"true",
         
         },

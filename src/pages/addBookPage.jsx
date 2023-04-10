@@ -8,7 +8,8 @@ import { BookContext } from "../App"
 import { addBookAction,deleteBookAction,updateBookAction } from "../Utils/actionCreators"
 import {SelectInp} from '../Utils/selectInp'
 const AddBookInputComp = ({name,defaultValue,type,genre,setGenre,setAvailable})=>{
-    const defaultCheck =defaultValue==='true'|| defaultValue===true?'on':'off'
+    const defaultCheck =defaultValue==true?'on':'off'
+  
     return (
         <div style={{display:'flex',width:"100%",justifyContent:'space-between',margin:"3% 0%"}}>
          <AddBookLabel >{name}</AddBookLabel>
@@ -19,7 +20,7 @@ const AddBookInputComp = ({name,defaultValue,type,genre,setGenre,setAvailable})=
             type==='textBox'?
                 <AddBookTextBox required defaultValue={defaultValue}  name={name} />:
             type ==='checkbox'?
-                <CheckBox type='checkbox' defaultValue={defaultCheck} onChange={()=>setAvailable(state=>!state)}/>:
+                <CheckBox type='checkbox' defaultChecked={defaultCheck} onChange={()=>setAvailable(state=>!state)}/>:
             <SelectInp genre={genre} setGenre={setGenre}/>
          }
          
@@ -45,23 +46,25 @@ const AddBookPage =()=>{
     const defaultdata = useLocation().state
     const [genre, setGenre] =useState([])
     const navigate = useNavigate()
+    const [available,setAvailable] = useState(false)
+    const pageValue =   defaultdata && defaultdata.from =="dashboard" ?"Update Book":"Add Book"
     useEffect(()=>{
         if(defaultdata && defaultdata.from =='dashboard'){
                  setGenre(defaultdata.genre)
         }
     },[defaultdata])
-    const [available,setAvailable] = useState(false)
     const handleBookSubmit=(e)=>{
         e.preventDefault();
         let elements = {...e.target.elements}
         const result =  getFormDataObject(elements,genre,available)
-        if(defaultdata.from=='home'){
-            result['key']=getkey()
-            dispatch(addBookAction(result))
+        if(defaultdata && defaultdata.from =='dashboard'){
+            dispatch(updateBookAction(result,defaultdata.keys))
+       
            
         }
-        else if(defaultdata.from =='dashboard'){
-            dispatch(updateBookAction(result,defaultdata.keys))
+        else {
+            result['key']=getkey()
+            dispatch(addBookAction(result))
         }
         navigate('/dashboard')
 
@@ -74,8 +77,11 @@ const AddBookPage =()=>{
    
     return (
         <AddBookContainer>
+        
         <AddBookIconWrap>
-            <Heading1 m={'auto'}>Add Book</Heading1>
+            <Heading1 m={'auto'}>
+            { pageValue  }
+            </Heading1>
             <IconWrap onClick={()=>handleDelete(defaultdata.keys)}>
             <MdDelete size={'100%'}/>
 
@@ -95,7 +101,9 @@ const AddBookPage =()=>{
             <AddBookInputComp defaultValue={defaultdata?defaultdata.genre:''} name={'genre'} genre={genre} setGenre={setGenre} />
             <AddBookInputComp defaultValue={defaultdata?defaultdata.available:''} name={"available"} type='checkbox' setAvailable={setAvailable}/>
 
-            <SignBtnStyle bg='#8ec2ae'>Add Book</SignBtnStyle>
+            <SignBtnStyle bg='#8ec2ae'>
+            {pageValue}
+            </SignBtnStyle>
             </form>
             </div>
         </AddBookContainer>
