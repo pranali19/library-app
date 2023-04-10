@@ -26,6 +26,7 @@ function App() {
     const uid = user.uid;
   setIsLoggedIn(true)
   }  else {
+    setIsLibrarian(false)
     setIsLoggedIn(false)
   }
 })

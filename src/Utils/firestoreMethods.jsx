@@ -11,6 +11,7 @@ export const setUserData = async ({name,email,role,username,navigate})=>{
     const newRole = role == 'on'?true:false
     let isOkay =true
     try {
+      console.log("workd")
        await setDoc(doc(userRef,email), {
           name: name,
           role:newRole,

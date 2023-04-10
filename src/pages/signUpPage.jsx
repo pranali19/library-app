@@ -17,6 +17,7 @@ const SignUpPage = ()=>{
     const handleSignUp= async(elements)=>{
         
         const auth = getAuth()
+    
         try{
             await createUserWithEmailAndPassword(auth,elements.email,elements.password)
         }
@@ -28,6 +29,7 @@ const SignUpPage = ()=>{
          
                 setUserData({...elements,navigate:navigate})  
                 .then(res=>{if(res){
+                    console.log(res)
                     navigate('/log-in')}
                 })
               
