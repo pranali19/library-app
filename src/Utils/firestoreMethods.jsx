@@ -9,6 +9,7 @@ export const setUserData = async ({name,email,role,username,navigate})=>{
     
     const userRef = collection(db, "users")
     const newRole = role == 'on'?true:false
+   
     let isOkay =true
     try {
       console.log("workd")
@@ -33,7 +34,8 @@ export const readUserData = async(email,navigate,setUserInfo,setIsLibrarian)=>{
     if (docSnap.exists()) {
       const  userData = docSnap.data()
       await setUserInfo(userData)
-      await setIsLibrarian(userData.role === true?true:false)
+      console.log(userData)
+      await setIsLibrarian(state=>userData.role === true?true:false)
       navigate('/')
 
     } else {

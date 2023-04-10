@@ -15,6 +15,7 @@ const SignUpPage = ()=>{
     const navigate = useNavigate()
    let isOkay=true
     const handleSignUp= async(elements)=>{
+       
         const auth = getAuth()
         try{
             await createUserWithEmailAndPassword(auth,elements.email,elements.password)
