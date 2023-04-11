@@ -23,6 +23,7 @@ const SignUpPage = ()=>{
         catch(err){
             isOkay = false
             alert(`request unsuccessfull ! ${err.message}`)
+            window.location.reload(true)
         }
         if(isOkay){
                 setUserData({...elements,navigate:navigate})  

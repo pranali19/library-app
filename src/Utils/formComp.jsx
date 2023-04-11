@@ -20,7 +20,7 @@ const SingleInputElem = ({placeholder,setChecked,checked})=>{
     )
 }
 const FormComp = ({title,inpArr,handler})=>{
-    const [checked,setChecked]=useState('off')
+    const [checked,setChecked]=useState(false)
     const handleSubmit=(e)=>{
         e.preventDefault();
         const elements = [...e.target.elements]
