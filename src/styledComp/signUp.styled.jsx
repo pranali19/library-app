@@ -140,7 +140,7 @@ export const SignInput=styled.input`
   font-size: 16px;
   font-weight: 400;
   line-height: normal;
-  ${'' /* background-color: transparent; */}
+  background-color: transparent;
   color: #282828;
   outline: none;
   box-shadow: 0px 4px 20px 0px transparent;
